@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CrypToday</string>
+    <string name="about">About %1$s</string>
+    <string name="website">Official Website</string>
+</resources>

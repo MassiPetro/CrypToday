@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/top_appbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:navigationIcon="@drawable/ic_arrow_back" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="20dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Bitcoin" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_symbol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_name"
+                    tools:text="BTC" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/img_logo"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="20dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerInside"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/ShapeAppearance.MaterialComponents.Circular"
+                    tools:src="@mipmap/ic_launcher" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_chart"
+                    style="?attr/materialCardViewFilledStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_symbol"
+                    tools:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tv_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="30dp"
+                            android:textSize="26sp"
+                            android:textStyle="bold"
+                            tools:text="20000€" />
+
+                        <com.github.mikephil.charting.charts.LineChart
+                            android:id="@+id/line_chart"
+                            android:layout_width="match_parent"
+                            android:layout_height="400dp" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_about"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/about"
+                    android:textColor="@color/md_theme_light_secondary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/card_chart"
+                    tools:text="About Bitcoin"
+                    tools:visibility="visible" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_desc"
+                    style="?attr/materialCardViewFilledStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_about"
+                    tools:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tv_website"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:drawableStart="@drawable/ic_website"
+                            android:drawablePadding="5dp"
+                            android:drawableTint="@color/md_theme_light_primary"
+                            android:gravity="center"
+                            android:text="@string/website"
+                            android:textColor="@color/md_theme_light_primary"
+                            android:textSize="16sp" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tv_desc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            tools:text="Bitcoin is the first successful internet money based on peer-to-peer technology; whereby no central bank or authority is involved in the transaction and production of the Bitcoin currency." />
+
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
